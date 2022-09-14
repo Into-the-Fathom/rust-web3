@@ -1,13 +1,13 @@
 [package]
-name = "web3"
-version = "0.19.0"
-description = "Ethereum JSON-RPC client."
-homepage = "https://github.com/tomusdrw/rust-web3"
-repository = "https://github.com/tomusdrw/rust-web3"
-documentation = "https://docs.rs/web3"
+name = "web3_fe"
+version = "0.1.0"
+description = "Ethereum JSON-RPC client. Fathom Edition"
+homepage = "https://github.com/Into-the-Fathom/rust-web3"
+repository = "https://github.com/Into-the-Fathom/rust-web3"
+documentation = "https://docs.rs/web3_fe"
 license = "MIT"
 keywords = ["jsonrpc", "web3", "ethereum", "rpc", "client"]
-authors = ["Tomasz Drwięga <tomasz@parity.io>"]
+authors = ["Tomasz Drwięga <tomasz@parity.io>", "Zachary Short <zachary.short@fathom.fi>", "Anton Grigorev <anton@fathom.fi>"]
 readme = "README.md"
 edition = "2018"
 

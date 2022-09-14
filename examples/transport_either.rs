@@ -1,17 +1,17 @@
 use hex_literal::hex;
 
-pub type Transport = web3::transports::Either<web3::transports::WebSocket, web3::transports::Http>;
+pub type Transport = web3_fe::transports::Either<web3_fe::transports::WebSocket, web3_fe::transports::Http>;
 
 #[tokio::main]
-async fn main() -> web3::Result {
+async fn main() -> web3_fe::Result {
     let _ = env_logger::try_init();
-    let transport = web3::transports::Http::new("http://localhost:8545")?;
+    let transport = web3_fe::transports::Http::new("http://localhost:8545")?;
 
-    run(web3::transports::Either::Right(transport)).await
+    run(web3_fe::transports::Either::Right(transport)).await
 }
 
-async fn run(transport: Transport) -> web3::Result {
-    let web3 = web3::Web3::new(transport);
+async fn run(transport: Transport) -> web3_fe::Result {
+    let web3 = web3_fe::Web3::new(transport);
 
     println!("Calling accounts.");
     let mut accounts = web3.eth().accounts().await?;

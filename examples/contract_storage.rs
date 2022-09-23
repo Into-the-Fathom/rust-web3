@@ -1,16 +1,16 @@
 //based on examples/contract.rs
 
 use std::time;
-use web3_fe::{
+use fathom_web3::{
     contract::{Contract, Options},
     types::U256,
 };
 
 #[tokio::main]
-async fn main() -> web3_fe::contract::Result<()> {
+async fn main() -> fathom_web3::contract::Result<()> {
     let _ = env_logger::try_init();
-    let transport = web3_fe::transports::Http::new("http://localhost:8545")?;
-    let web3 = web3_fe::Web3::new(transport);
+    let transport = fathom_web3::transports::Http::new("http://localhost:8545")?;
+    let web3 = fathom_web3::Web3::new(transport);
     let accounts = web3.eth().accounts().await?;
 
     // Get current balance

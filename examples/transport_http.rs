@@ -1,10 +1,10 @@
 use hex_literal::hex;
 
 #[tokio::main]
-async fn main() -> web3_fe::Result<()> {
+async fn main() -> fathom_web3::Result<()> {
     let _ = env_logger::try_init();
-    let transport = web3_fe::transports::Http::new("http://localhost:8545")?;
-    let web3 = web3_fe::Web3::new(transport);
+    let transport = fathom_web3::transports::Http::new("http://localhost:8545")?;
+    let web3 = fathom_web3::Web3::new(transport);
 
     println!("Calling accounts.");
     let mut accounts = web3.eth().accounts().await?;

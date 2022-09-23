@@ -2,7 +2,7 @@ use std::str::FromStr;
 
 use secp256k1::SecretKey;
 
-use web3_fe::{
+use fathom_web3::{
     ethabi::ethereum_types::U256,
     types::{Address, TransactionParameters},
 };
@@ -10,11 +10,11 @@ use web3_fe::{
 /// Below generates and signs a transaction offline, before transmitting it to a public node (eg Infura)
 /// For sending a transaction to a local node that stores private keys (eg Ganache) see transaction_private
 #[tokio::main]
-async fn main() -> web3_fe::Result {
+async fn main() -> fathom_web3::Result {
     // Sign up at infura > choose the desired network (eg Rinkeby) > copy the endpoint url into the below
     // If you need test ether use a faucet, eg https://faucet.rinkeby.io/
-    let transport = web3_fe::transports::Http::new("https://rinkeby.infura.io/v3/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")?;
-    let web3 = web3_fe::Web3::new(transport);
+    let transport = fathom_web3::transports::Http::new("https://rinkeby.infura.io/v3/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")?;
+    let web3 = fathom_web3::Web3::new(transport);
 
     // Insert the 20-byte "to" address in hex format (prefix with 0x)
     let to = Address::from_str("0xXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX").unwrap();

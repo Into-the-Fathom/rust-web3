@@ -4,12 +4,12 @@ Ethereum JSON-RPC multi-transport client.
 Rust implementation of Web3.js library.
 Fathom Edition.
 
-[![Build Status][ci-image]][ci-url] [![Crates.io](https://img.shields.io/crates/v/web3_fe)](https://crates.io/crates/web3_fe)
+[![Build Status][ci-image]][ci-url] [![Crates.io](https://img.shields.io/crates/v/fathom_web3)](https://crates.io/crates/fathom_web3)
 
 [ci-image]: https://github.com/Into-the-Fathom/rust-web3/workflows/Compilation%20and%20Testing%20Suite/badge.svg
 [ci-url]: https://github.com/Into-the-Fathom/rust-web3/actions?query=workflow%3A%22Compilation+and+Testing+Suite%22
-[docs-rs-badge]: https://docs.rs/web3_fe/badge.svg
-[docs-rs-url]: https://docs.rs/web3_fe
+[docs-rs-badge]: https://docs.rs/fathom_web3/badge.svg
+[docs-rs-url]: https://docs.rs/fathom_web3
 
 Documentation: [crates.io][docs-rs-url]
 
@@ -19,15 +19,15 @@ First, add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-web3_fe = "0.1.0"
+fathom_web3 = "1.0.0"
 ```
 
 ## Example
 ```rust
 #[tokio::main]
-async fn main() -> web3_fe::Result<()> {
-    let transport = web3_fe::transports::Http::new("http://localhost:8545")?;
-    let web3 = web3_fe::Web3::new(transport);
+async fn main() -> fathom_web3::Result<()> {
+    let transport = fathom_web3::transports::Http::new("http://localhost:8545")?;
+    let web3 = fathom_web3::Web3::new(transport);
 
     println!("Calling accounts.");
     let mut accounts = web3.eth().accounts().await?;
@@ -105,7 +105,7 @@ web3.api::<CustomNamespace>().custom_method().wait().unwrap()
 Currently, Windows does not support IPC, which is enabled in the library by default.
 To compile, you need to disable the IPC feature:
 ```
-web3_fe = { version = "0.1.0", default-features = false, features = ["http"] }
+fathom_web3 = { version = "1.0.0", default-features = false, features = ["http"] }
 ```
 
 # Avoiding OpenSSL dependency
@@ -113,7 +113,7 @@ web3_fe = { version = "0.1.0", default-features = false, features = ["http"] }
 On Linux, `native-tls` is implemented using OpenSSL. To avoid that dependency
 for HTTPS use the corresponding feature.
 ```
-web3_fe = { version = "0.1.0", default-features = false, features = ["http-rustls-tls"] }
+fathom_web3 = { version = "1.0.0", default-features = false, features = ["http-rustls-tls"] }
 ```
 
 # Cargo Features

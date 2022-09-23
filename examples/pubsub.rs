@@ -1,9 +1,9 @@
-use web3_fe::futures::{future, StreamExt};
+use fathom_web3::futures::{future, StreamExt};
 
 #[tokio::main]
-async fn main() -> web3_fe::Result {
-    let ws = web3_fe::transports::WebSocket::new("ws://localhost:8546").await?;
-    let web3 = web3_fe::Web3::new(ws.clone());
+async fn main() -> fathom_web3::Result {
+    let ws = fathom_web3::transports::WebSocket::new("ws://localhost:8546").await?;
+    let web3 = fathom_web3::Web3::new(ws.clone());
     let mut sub = web3.eth_subscribe().subscribe_new_heads().await?;
 
     println!("Got subscription id: {:?}", sub.id());

@@ -1,8 +1,8 @@
 #[tokio::main]
-async fn main() -> web3_fe::Result {
+async fn main() -> fathom_web3::Result {
     let _ = env_logger::try_init();
-    let http = web3_fe::transports::Http::new("http://localhost:8545")?;
-    let web3 = web3_fe::Web3::new(web3_fe::transports::Batch::new(http));
+    let http = fathom_web3::transports::Http::new("http://localhost:8545")?;
+    let web3 = fathom_web3::Web3::new(fathom_web3::transports::Batch::new(http));
 
     let accounts = web3.eth().accounts();
     let block = web3.eth().block_number();
